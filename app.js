@@ -9,6 +9,28 @@ function updatePrice(product, price, isIncising) {
   ProductInput.value = productNumber;
   const productTotal = document.getElementById(product + "-total");
   productTotal.innerText = productNumber * price;
+  //
+  calculateTotal();
+}
+//
+function getInputValue(product) {
+  const productInput = document.getElementById(product + "-number");
+  const phoneNumber = parseInt(productInput.value);
+  return phoneNumber;
+}
+
+//
+function calculateTotal() {
+  const phoneTotal = getInputValue("phone") * 1298;
+  const caseTotal = getInputValue("case") * 59;
+  const subTotal = phoneTotal + caseTotal;
+  const text = subTotal / 10;
+  const total = subTotal + text;
+  //
+  document.getElementById("sub-total").innerText = subTotal;
+  document.getElementById("text-amount").innerText = text;
+  document.getElementById("total-price").innerText = total;
+  console.log(subTotal);
 }
 // phone
 document.getElementById("phone-plus").addEventListener("click", function () {
